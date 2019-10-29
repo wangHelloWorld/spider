@@ -12,7 +12,9 @@ def get_book_title():
     # regex = '<div class="title".*?class="" href="(.*?)".*?>(.*?)</a>'
     regex = '<div class="info".*?class="title".*?class="" href="(.*?)".*?>(.*?)</a>.*?class="author">(.*?)</div>'
     results = re.findall(regex, get_content(), re.S)
-    print(results)
+    for result in results:
+        image_url, book_name, user_name = result
+        print(image_url, book_name, user_name)
     return len(results)
 
 
